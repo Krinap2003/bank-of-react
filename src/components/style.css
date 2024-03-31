@@ -1,22 +1,24 @@
+/* Navbar CSS */
 .nav {
-  background-color: #fefcdd;
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  border-bottom: 2px solid #6e757b;
-  height: 3vw;
-  padding: 0 20px; 
+    background-color: #fefcdd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6e757b;
+    height: 3vw;
+    padding: 0 20px;
 }
 
 #link {
-  color: #d48ac1;
-  font-size: 2vw;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 5px 10px;
-  white-space: nowrap;
+    color: #d48ac1;
+    font-size: 2vw;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    white-space: nowrap;
 }
+
 .logo {
     height: 3vw;
     width: 3vw;
@@ -25,6 +27,7 @@
     margin-right: auto;
 }
 
+/* Home Page CSS */
 #welcome {
     font-size: 30px;
     font-weight: bold;
@@ -34,18 +37,52 @@
     height: 40vmin;
     pointer-events: none;
 }
-  
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 @keyframes App-logo-spin {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
+}
+
+/* Credit Page CSS */
+.container {
+    display: flex;
+    /* Use flexbox layout */
+    height: 100vh;
+    /* Set the height of the container to 100% of the viewport height */
+    background-color: #abd6e2;
+}
+
+.left-side {
+    margin-left: 10%;
+    font-style: bold;
+}
+
+.vr {
+    border-left: 1px solid #6e757b;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 10%;
+}
+
+.right-side {
+    margin-left: 1%;
+}
+
+.list {
+    padding: 5px 4px 6px 7px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: left;
+    font-size: 1.5vw;
 }
