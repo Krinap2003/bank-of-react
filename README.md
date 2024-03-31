@@ -2,7 +2,7 @@
 This repository is the starter code for Assignment 3 - Bank of React.
 
 ### Live Link 
-[Website link](http://localhost:3000/bank-of-react-starter-code/)
+[Website link](https://krinap2003.github.io/bank-of-react/)
 
 ----------
 ### 1. Use the following process to ***import*** the Assignment 3 starter code repository to your GitHub account as your starter codebase
