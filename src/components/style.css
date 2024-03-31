@@ -1,51 +1,84 @@
 .nav {
   background-color: #fefcdd;
   display: flex;
-  justify-content: space-between; 
-  align-items: center;
+  justify-content: flex-end;
   border-bottom: 2px solid #6e757b;
-  height: 3vw;
-  padding: 0 20px; 
+  gap: 30px;
 }
 
 #link {
   color: #d48ac1;
-  font-size: 2vw;
+  font-size: 22px;
   font-family: sans-serif;
   font-weight: bold;
   text-decoration: none;
-  padding: 5px 10px;
-  white-space: nowrap;
+  padding-top: 5px;
+  padding-right: 10px;
+  flex-wrap: nowrap;
 }
+
 .logo {
-    height: 3vw;
-    width: 3vw;
-    margin-top: 0%;
-    margin-left: 0vw;
-    margin-right: auto;
+  height: 40px;
+  width: 40px;
+  padding-right: 70%;
+ 
 }
 
 #welcome {
-    font-size: 30px;
-    font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
-  
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+}
 }
 
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Credit Page */
+.container {
+display: flex; /* Use flexbox layout */
+height: 100vh; /* Set the height of the container to 100% of the viewport height */
+background-color: #abd6e2;
+}
+
+.left-side {
+margin-left: 10%;
+font-style: bold;
+}
+
+.vr {
+border-left: 1px solid #6e757b; /* Adjust the color, width, and style as needed */
+height: 100%; /* Set the height of the divider to match its parent */
+margin-top: 0;
+margin-left: 10%;
+}
+
+.right-side {
+/* flex: 1; Take up available space on the right side */
+margin-left: 1%;
+}
+
+.list{
+padding: 5px 4px 6px 7px;
+margin-top: 3px;
+margin-bottom: 3px;
+text-align: left;
+
 }
