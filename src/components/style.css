@@ -1,0 +1,51 @@
+.nav {
+  background-color: #fefcdd;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  border-bottom: 2px solid #6e757b;
+  height: 3vw;
+  padding: 0 20px; 
+}
+
+#link {
+  color: #d48ac1;
+  font-size: 2vw;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+.logo {
+    height: 3vw;
+    width: 3vw;
+    margin-top: 0%;
+    margin-left: 0vw;
+    margin-right: auto;
+}
+
+#welcome {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+  
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
