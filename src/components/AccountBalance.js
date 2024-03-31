@@ -6,11 +6,11 @@ The AccountBalance component displays account balance. It is included in other p
 import React, {Component} from 'react';
 
 class AccountBalance extends Component {
-  // Display account balance
+  // Display account balance and round it to 2 decimal places
   render() {
     return (
       <div>
-        Balance: {this.props.accountBalance}
+        Balance: {this.props.accountBalance.toFixed(2)}
       </div>
     );
   }
