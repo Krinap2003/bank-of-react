@@ -23,7 +23,6 @@ class UserProfile extends Component {
             <Link to="/debits" id="link">Debits</Link>
           </nav>
         </div>
-        <h1>Login</h1>
         <h1>User Profile</h1>
 
         <div>Username: {this.props.userName}</div>
