@@ -7,6 +7,8 @@ Note: You don't need to work on this file for the Assignment.
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import './style.css';
+import logo from './logo.svg';
 
 class LogIn extends Component {
   constructor (props) {  // Create and initialize state
@@ -44,6 +46,16 @@ class LogIn extends Component {
     // Render the login form (and call "handleSubmit" method when "Log In" button is clicked to submit form)
     return (
       <div>
+        {/* Navigation Bar */}
+        <div className="homeContainer">
+          <nav className='nav'>
+            <img src={logo} className="logo" alt="logo" />
+            <Link to="/userProfile" id="link">User Profile</Link>
+            <Link to="/login" id="link">Login</Link>
+            <Link to="/credits" id="link">Credits</Link>
+            <Link to="/debits" id="link">Debits</Link>
+          </nav>
+        </div>
         <h1>Login</h1>
         
         <form onSubmit={this.handleSubmit}>
