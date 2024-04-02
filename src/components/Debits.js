@@ -5,6 +5,8 @@ The Debits component contains information for Debits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
+import './style.css';
+import logo from './logo.svg';
 
 const Debits = (props) => {
   // Create the list of Debit items
@@ -18,6 +20,16 @@ const Debits = (props) => {
   // Render the list of Debit items and a form to input new Debit item
   return (
     <div>
+      {/* Navigation Bar */}
+      <div className="homeContainer">
+        <nav className='nav'>
+          <img src={logo} className="logo" alt="logo" />
+          <Link to="/userProfile" id="link">User Profile</Link>
+          <Link to="/login" id="link">Login</Link>
+          <Link to="/credits" id="link">Credits</Link>
+          <Link to="/debits" id="link">Debits</Link>
+        </nav>
+      </div>
       <h1>Debits</h1>
 
       {debitsView()}
