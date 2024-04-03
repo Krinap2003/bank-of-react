@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bank-of-react/static/css/main.fac409f7.chunk.css",
+    "main.css": "/bank-of-react/static/css/main.ffa1c8e8.chunk.css",
     "main.js": "/bank-of-react/static/js/main.bfe4b954.chunk.js",
     "main.js.map": "/bank-of-react/static/js/main.bfe4b954.chunk.js.map",
     "runtime-main.js": "/bank-of-react/static/js/runtime-main.f054375f.js",
@@ -10,14 +10,14 @@
     "static/js/3.2a601c57.chunk.js": "/bank-of-react/static/js/3.2a601c57.chunk.js",
     "static/js/3.2a601c57.chunk.js.map": "/bank-of-react/static/js/3.2a601c57.chunk.js.map",
     "index.html": "/bank-of-react/index.html",
-    "static/css/main.fac409f7.chunk.css.map": "/bank-of-react/static/css/main.fac409f7.chunk.css.map",
+    "static/css/main.ffa1c8e8.chunk.css.map": "/bank-of-react/static/css/main.ffa1c8e8.chunk.css.map",
     "static/js/2.4caad9ac.chunk.js.LICENSE.txt": "/bank-of-react/static/js/2.4caad9ac.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/bank-of-react/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f054375f.js",
     "static/js/2.4caad9ac.chunk.js",
-    "static/css/main.fac409f7.chunk.css",
+    "static/css/main.ffa1c8e8.chunk.css",
     "static/js/main.bfe4b954.chunk.js"
   ]
 }
