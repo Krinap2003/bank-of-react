@@ -9,6 +9,7 @@ import './style.css';
 import logo from './logo.svg';
 
 const Debits = (props) => {
+  console.log(props.accountBalance);
   // Create the list of Debit items
   let debitsView = () => {
     const { debits } = props;
@@ -31,6 +32,7 @@ const Debits = (props) => {
         </nav>
       </div>
       <h1>Debits</h1>
+      <h2>Account Balance: {props.accountBalance}</h2>
 
       {debitsView()}
 
