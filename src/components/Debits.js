@@ -19,7 +19,7 @@ const Debits = ({debits, addDebit, accountBalance}) => {
   let debitsView = () => {
     return debits.map((debit, index) => {  // Extract "id", "amount", "description" and "date" properties of each debits JSON array element
       let date = debit.date.slice(0,10);
-      return <li key={index}> {debit.amount} {debit.description} {date}</li>
+      return <li className='list' key={index}> {debit.amount} {debit.description} {date}</li>
     });
   }
 
@@ -57,10 +57,12 @@ const Debits = ({debits, addDebit, accountBalance}) => {
   
         <div className='container'>
           <div className='left-side'>
-            <h2 id='balance-title'>Account Balance: {accountBalance}</h2>
+            <h3 style={{ fontSize: '1.5vw' }}>Account Balance: {accountBalance}</h3>
           </div>
           <h2 className='vr'>&nbsp;</h2>
-          <div>
+          <br />
+          
+          <div className='right-side'>
             <h1 id='debits-title'>Debits</h1>
             <div className='d-list'>
               {debitsView()}
@@ -72,8 +74,8 @@ const Debits = ({debits, addDebit, accountBalance}) => {
                 <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
                 Amount:
                 <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
+                <button type="submit">Add Debit</button>
               </div>
-              <button type="submit">Add Debit</button>
             </form>
             <br/>
             <Link to="/">Return to Home</Link>
