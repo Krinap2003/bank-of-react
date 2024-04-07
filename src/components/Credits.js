@@ -73,7 +73,7 @@ const Credits = ({ credits, accountBalance, addCreditItem }) => {
       {/* Credit Page */}
       <div className='container'>
         <div className='left-side'>
-          <h3 style={{ fontSize: '1.5vw' }}>Accont Balance: {accountBalance}</h3>
+          <h3 style={{ fontSize: '1.5vw' }}>Account Balance: {accountBalance}</h3>
         </div>
         <h2 className='vr'>&nbsp;</h2>
         <br />
