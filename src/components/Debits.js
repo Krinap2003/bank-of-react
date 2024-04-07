@@ -41,39 +41,46 @@ const Debits = ({debits, addDebit, accountBalance}) => {
   
   }
 
-  // Render the list of Debit items and a form to input new Debit item
-  return (
-    <div>
-      {/* Navigation Bar */}
-      <div className="homeContainer">
-        <nav className='nav'>
-          <img src={logo} className="logo" alt="logo" />
-          <Link to="/userProfile" id="link">User Profile</Link>
-          <Link to="/login" id="link">Login</Link>
-          <Link to="/credits" id="link">Credits</Link>
-          <Link to="/debits" id="link">Debits</Link>
-        </nav>
-      </div>
-      <h1>Debits</h1>
-      <h2>Account Balance: {accountBalance}</h2>
-
-      <div style={{display: 'inline-block', textAlign: 'left'}}>
-      {debitsView()}
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <div style={{fontWeight: 'bold'}}>
-          Description:
-          <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
-          Amount:
-          <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
+    // Render the list of Debit items and a form to input new Debit item
+    return (
+      <div>
+        {/* Navigation Bar */}
+        <div className="homeContainer">
+          <nav className='nav'>
+            <img src={logo} className="logo" alt="logo" />
+            <Link to="/userProfile" id="link">User Profile</Link>
+            <Link to="/login" id="link">Login</Link>
+            <Link to="/credits" id="link">Credits</Link>
+            <Link to="/debits" id="link">Debits</Link>
+          </nav>
         </div>
-        <button type="submit">Add Debit</button>
-      </form>
-      <br/>
-      <Link to="/">Return to Home</Link>
-    </div>
-  );
-}
-
-export default Debits;
+  
+        <div className='container'>
+          <div className='left-side'>
+            <h2 id='balance-title'>Account Balance: {accountBalance}</h2>
+          </div>
+          <h2 className='vr'>&nbsp;</h2>
+          <div>
+            <h1 id='debits-title'>Debits</h1>
+            <div className='d-list'>
+              {debitsView()}
+            </div>
+  
+            <form onSubmit={handleSubmit}>
+              <div style={{fontWeight: 'bold'}}>
+                Description:
+                <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
+                Amount:
+                <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
+              </div>
+              <button type="submit">Add Debit</button>
+            </form>
+            <br/>
+            <Link to="/">Return to Home</Link>
+          </div>
+          </div>
+      </div>
+    );
+  }
+  
+  export default Debits;
