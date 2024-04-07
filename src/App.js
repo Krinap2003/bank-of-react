@@ -14,6 +14,7 @@ import LogIn from './components/Login';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
 import axios from 'axios';
+import { useState } from 'react/cjs/react.development';
 
 class App extends Component {
   constructor() {  // Create and initialize state
@@ -52,6 +53,22 @@ class App extends Component {
       });
   }
 
+  async fetchDebitList() {
+    // Await for promise (completion) returned from API call
+    try {  // Accept success response as array of JSON objects (users)
+      let response = await axios.get('https://johnnylaicode.github.io/api/debits.json');
+      //console.log(response);  // Print out response
+      
+      let updatedBalance = (this.state.accountBalance - this.calculateTotalDebits(response.data));
+      this.updateAccountBalance(updatedBalance);
+
+      this.setState({debitList: response.data});  // Store received debit list in the state
+    } 
+    catch (error) {  // Print out errors at console when there is an error response
+      console.log('Error fetching debit list:', error);   
+    }
+  }
+
   // Function to update account balance with new balance.
   updateAccountBalance = (newBalance) => {
     this.setState({ accountBalance: newBalance });
@@ -76,11 +93,38 @@ class App extends Component {
     this.setState({ accountBalance: newBalance });
   };
 
+
+  // Calculate total number of debits in user account
+  calculateTotalDebits = (debits) => {
+    let totalDebits = 0;
+    for(const debit of debits) {
+      totalDebits += debit.amount;
+    }
+
+    return totalDebits;
+  }
+
+  adjustDebitBalance = (newAmount) => {
+    let balance = (this.state.accountBalance) - newAmount;
+    balance = Math.round(balance * 100)/100;
+    this.setState({ accountBalance: balance });
+  }
+
+  addDebit = (debitEntry) => {
+    debitEntry.amount = (Math.round(debitEntry.amount * 100)/100);
+    this.setState(prevState => ({
+      debitList: [...prevState.debitList, debitEntry]
+    }))
+    this.adjustDebitBalance(debitEntry.amount);
+  }
+
   componentDidMount() {
     // Fetch credit list when component mounts
     this.fetchCreditList();
     // Fetch account balance when component mounts
     this.updateAccountBalance(0);
+    // Fetch debit list when component mounts
+    this.fetchDebitList();
   }
 
   // Create Routes and React elements to be rendered using React components
@@ -92,7 +136,7 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.creditList} accountBalance={this.state.accountBalance} addCreditItem={this.addCreditItem} />)
-    const DebitsComponent = () => (<Debits debits={this.state.debitList} />)
+    const DebitsComponent = () => (<Debits debits={this.state.debitList} addDebit={this.addDebit} accountBalance={this.state.accountBalance}/>)
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (

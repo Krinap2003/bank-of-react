@@ -86,3 +86,27 @@
     text-align: left;
     font-size: 1.5vw;
 }
+
+/* Debit Page CSS */
+.balance-title {
+    font-size: 1.5vw;
+}
+
+.history {
+    display: inline;
+    font-size: 1vw;
+}
+
+#debits-title {
+    font-size: 2vw;
+    margin-right: 50%;
+    text-align: left;
+}
+
+.d-list {
+    padding: 5px 4px 6px 7px;
+    margin-left: 40%;
+    display: inline;
+    text-align: left;
+    font-size: 1.5vw;
+}
