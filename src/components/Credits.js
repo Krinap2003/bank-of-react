@@ -32,7 +32,7 @@ const Credits = ({ credits, accountBalance, addCreditItem }) => {
     }
     else if (name === 'amount') {
       // Validate input to allow only decimal numbers or empty string
-      if (/^\d*\.?\d*$/.test(value) || value === '') {
+      if (/^\d*\.?\d{0,2}$/.test(value) || value === '') {
         setFormData(prevData => ({
           ...prevData,
           amount: value
