@@ -14,6 +14,7 @@ import LogIn from './components/Login';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
 import axios from 'axios';
+import { useState } from 'react/cjs/react.development';
 
 class App extends Component {
   constructor() {  // Create and initialize state
@@ -104,12 +105,13 @@ class App extends Component {
   }
 
   adjustDebitBalance = (newAmount) => {
-    const balance = { ...this.state.amount };
-    balance.accountBalance = newAmount.amount + balance.accountBalance;
+    let balance = (this.state.accountBalance) - newAmount;
+    balance = Math.round(balance * 100)/100;
     this.setState({ accountBalance: balance });
   }
 
   addDebit = (debitEntry) => {
+    debitEntry.amount = (Math.round(debitEntry.amount * 100)/100);
     this.setState(prevState => ({
       debitList: [...prevState.debitList, debitEntry]
     }))
@@ -134,7 +136,7 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.creditList} accountBalance={this.state.accountBalance} addCreditItem={this.addCreditItem} />)
-    const DebitsComponent = () => (<Debits debits={this.state.debitList}/>)
+    const DebitsComponent = () => (<Debits debits={this.state.debitList} addDebit={this.addDebit} accountBalance={this.state.accountBalance}/>)
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (

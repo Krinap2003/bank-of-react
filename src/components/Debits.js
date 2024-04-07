@@ -1,5 +1,3 @@
-
-
 /*==================================================
 src/components/Debits.js
 
@@ -12,17 +10,16 @@ import logo from './logo.svg';
 import React, { useState } from 'react';
 
 
-const Debits = (props) => {
+const Debits = ({debits, addDebit, accountBalance}) => {
   //console.log(props);
   // Declare a single state object to keep track of new form entries
   const [debitEntry, setDebitEntryVals] = useState({description: '', amount: '', date: new Date().toISOString().substring(0, 10)});
   
   // Create the list of Debit items
   let debitsView = () => {
-    const { debits } = props;
-    return debits.map((debit) => {  // Extract "id", "amount", "description" and "date" properties of each debits JSON array element
+    return debits.map((debit, index) => {  // Extract "id", "amount", "description" and "date" properties of each debits JSON array element
       let date = debit.date.slice(0,10);
-      return <li key={debit.id}>{debit.amount} {debit.description} {date}</li>
+      return <li key={index}> {debit.amount} {debit.description} {date}</li>
     });
   }
 
@@ -30,13 +27,16 @@ const Debits = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setDebitEntryVals({...debitEntry, [event.target.name]: event.target.value});
-  
+    
   }
-  
+
   // Stored user debit entry is sent to App.js
   const handleSubmit = (event) => {
     event.preventDefault() // prevent page from refreshing
-    props.addDebit(debitEntry) // will update debit list state in the top-level component (App.js)
+    addDebit(debitEntry) // will update debit list state in the top-level component (App.js)
+    let resetEntry = {description: '', amount: '', date: new Date().toISOString().substring(0, 10)};
+    setDebitEntryVals(resetEntry);
+  
   }
 
   // Render the list of Debit items and a form to input new Debit item
@@ -53,13 +53,18 @@ const Debits = (props) => {
         </nav>
       </div>
       <h1>Debits</h1>
-      <h2>Account Balance: {props.accountBalance}</h2>
+      <h2>Account Balance: {accountBalance}</h2>
 
       {debitsView()}
 
       <form onSubmit={handleSubmit}>
-        <input type="text" value = {debitEntry.description} placeholder = "Description" name="description" onChange={handleChange}/>
-        <input type="number" value = {debitEntry.amount} placeholder = "Amount" name="amount" onChange={handleChange}/>
+        <div>
+        <h2>Description: </h2>
+        <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
+        <h2>Amount: </h2>
+        <input type="number" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
+        
+        </div>
         <button type="submit">Add Debit</button>
       </form>
       <br/>
