@@ -33,7 +33,9 @@ const Debits = ({debits, addDebit, accountBalance}) => {
   // Stored user debit entry is sent to App.js
   const handleSubmit = (event) => {
     event.preventDefault() // prevent page from refreshing
-    addDebit(debitEntry) // will update debit list state in the top-level component (App.js)
+    if (!(debitEntry.description === '' || debitEntry.amount === '')){
+      addDebit(debitEntry) // will update debit list state in the top-level component (App.js)
+    }
     let resetEntry = {description: '', amount: '', date: new Date().toISOString().substring(0, 10)};
     setDebitEntryVals(resetEntry);
   
@@ -62,7 +64,7 @@ const Debits = ({debits, addDebit, accountBalance}) => {
         <h2>Description: </h2>
         <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
         <h2>Amount: </h2>
-        <input type="number" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
+        <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
         
         </div>
         <button type="submit">Add Debit</button>
