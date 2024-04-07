@@ -56,7 +56,7 @@ class App extends Component {
     // Await for promise (completion) returned from API call
     try {  // Accept success response as array of JSON objects (users)
       let response = await axios.get('https://johnnylaicode.github.io/api/debits.json');
-      console.log(response);  // Print out response
+      //console.log(response);  // Print out response
       
       let updatedBalance = (this.state.accountBalance - this.calculateTotalDebits(response.data));
       this.updateAccountBalance(updatedBalance);
@@ -92,6 +92,7 @@ class App extends Component {
     this.setState({ accountBalance: newBalance });
   };
 
+
   // Calculate total number of debits in user account
   calculateTotalDebits = (debits) => {
     let totalDebits = 0;
@@ -100,6 +101,19 @@ class App extends Component {
     }
 
     return totalDebits;
+  }
+
+  adjustDebitBalance = (newAmount) => {
+    const balance = { ...this.state.amount };
+    balance.accountBalance = newAmount.amount + balance.accountBalance;
+    this.setState({ accountBalance: balance });
+  }
+
+  addDebit = (debitEntry) => {
+    this.setState(prevState => ({
+      debitList: [...prevState.debitList, debitEntry]
+    }))
+    this.adjustDebitBalance(debitEntry.amount);
   }
 
   componentDidMount() {
@@ -120,7 +134,7 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.creditList} accountBalance={this.state.accountBalance} addCreditItem={this.addCreditItem} />)
-    const DebitsComponent = () => (<Debits debits={this.state.debitList} accountBalance={this.state.accountBalance} />)
+    const DebitsComponent = () => (<Debits debits={this.state.debitList}/>)
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
