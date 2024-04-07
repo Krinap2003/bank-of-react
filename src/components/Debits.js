@@ -57,15 +57,16 @@ const Debits = ({debits, addDebit, accountBalance}) => {
       <h1>Debits</h1>
       <h2>Account Balance: {accountBalance}</h2>
 
+      <div style={{display: 'inline-block', textAlign: 'left'}}>
       {debitsView()}
+      </div>
 
       <form onSubmit={handleSubmit}>
-        <div>
-        <h2>Description: </h2>
-        <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
-        <h2>Amount: </h2>
-        <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
-        
+        <div style={{fontWeight: 'bold'}}>
+          Description:
+          <input type="text" value = {debitEntry.description} name="description" onChange={handleChange}/>
+          Amount:
+          <input type="number" step = "any" value = {debitEntry.amount} name="amount" onChange={handleChange}/>
         </div>
         <button type="submit">Add Debit</button>
       </form>
